@@ -39,7 +39,12 @@ public class FizzBuzz {
                         } else
 
                             fizBuzCount.add("Buzz");
-                    } else
+                    } else if (i%7==0){
+                        String iValue=String.valueOf(i);
+                        String combIvalu=iValue.concat(" -this number is a multiple of seven");
+                        fizBuzCount.add(combIvalu);
+                    }
+                    else
 
                         fizBuzCount.add(i);
                 }
@@ -65,7 +70,12 @@ public class FizzBuzz {
                         } else
 
                             fizBuzCount.add("Buzz");
-                    } else
+                    }  else if (i%7==0){
+                        String iValue=String.valueOf(i);
+                        String combIvalu=iValue.concat(" -this number is a multiple of seven");
+                        fizBuzCount.add(combIvalu);
+                    }
+                    else
 
                         fizBuzCount.add(i);
                 }
