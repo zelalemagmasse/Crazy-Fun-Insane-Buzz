@@ -7,48 +7,71 @@ public class FizzBuzz {
     private int smallNum;
     private int bigNum;
 
-    public int getSmallNum() {
-        return smallNum;
-    }
 
-    public int getBigNum() {
-        return bigNum;
-    }
 
-    public ArrayList fizBuzDisplay(){
+    public ArrayList fizBuzDisplay() {
         ArrayList fizBuzCount = new ArrayList();
-        Random bigEnd=new Random();
+        Random bigEnd = new Random();
 
-        int bign=1 + bigEnd.nextInt(99);
-        int endn=1 + bigEnd.nextInt(99);
+        int bign = 1 + bigEnd.nextInt(99);
+        int endn = 1 + bigEnd.nextInt(99);
 
 
+        smallNum = intSmallerComparator(bign, endn);
+        bigNum = intGreaterComparator(bign, endn);
 
-        smallNum=intSmallerComparator(bigNum,endn);
-        bigNum=intGreaterComparator(bign,endn);
+        if (rangeChecker(smallNum, bigNum)) {
+            fizBuzCount.add("This won't take long");
+            if (smallNum == bigNum) {
+                fizBuzCount.add("Shazam");
+            } else {
 
-        if(smallNum==bigNum){
-            fizBuzCount.add("Shazam");
-        }
-        else {
-
-            for (int i = smallNum; i <= bigNum; i++) {
-                if (i % 3 == 0) {
-                    if (i % 5 == 0) {
-                        fizBuzCount.add("FizzBuzz");
-                    } else
-                        fizBuzCount.add("Fizz");
-
-                } else if (i % 5 == 0) {
+                for (int i = smallNum; i <= bigNum; i++) {
                     if (i % 3 == 0) {
-                        fizBuzCount.add("FizzBuzz");
+                        if (i % 5 == 0) {
+                            fizBuzCount.add("FizzBuzz");
+                        } else
+                            fizBuzCount.add("Fizz");
+
+                    } else if (i % 5 == 0) {
+                        if (i % 3 == 0) {
+                            fizBuzCount.add("FizzBuzz");
+                        } else
+
+                            fizBuzCount.add("Buzz");
                     } else
 
-                        fizBuzCount.add("Buzz");
-                } else
-
-                    fizBuzCount.add(i);
+                        fizBuzCount.add(i);
+                }
             }
+            //return fizBuzCount;
+        }
+        else{
+
+            if (smallNum == bigNum) {
+                fizBuzCount.add("Shazam");
+            } else {
+
+                for (int i = smallNum; i <= bigNum; i++) {
+                    if (i % 3 == 0) {
+                        if (i % 5 == 0) {
+                            fizBuzCount.add("FizzBuzz");
+                        } else
+                            fizBuzCount.add("Fizz");
+
+                    } else if (i % 5 == 0) {
+                        if (i % 3 == 0) {
+                            fizBuzCount.add("FizzBuzz");
+                        } else
+
+                            fizBuzCount.add("Buzz");
+                    } else
+
+                        fizBuzCount.add(i);
+                }
+            }
+            //return fizBuzCount;
+
         }
         return fizBuzCount;
     }
@@ -63,4 +86,11 @@ public class FizzBuzz {
             return randNum2;
         else return randNum1;
     }
+    public boolean rangeChecker(int smallNum,int bigNum){
+        if(bigNum-smallNum<10)
+            return true;
+        else
+            return false;
+    }
+
 }
